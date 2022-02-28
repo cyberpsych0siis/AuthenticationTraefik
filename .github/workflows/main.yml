@@ -9,7 +9,7 @@ jobs:
       - name: Docker Build & Push Action
         uses: mr-smithers-excellent/docker-build-push@v5.6
         with:
-          image: cyberpsych0siis/authserver
+          image: cyberpsych0siis/traefik
           tags: latest
           registry: thallosaurus.de
           dockerfile: Dockerfile
