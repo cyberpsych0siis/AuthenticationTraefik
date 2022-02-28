@@ -1,0 +1,54 @@
+http:
+  services:
+    userarea:
+      loadBalancer:
+        servers:
+          - url: "http://userarea/"
+#    authserver:
+#      loadBalancer:
+#        servers:
+#          - url: "http://authserver:9000/"
+#    loginui:
+#      loadBalancer:
+#        servers:
+#          - url: "http://loginui"
+
+  routers:
+    userrouter:
+      middlewares:
+        - "auth"
+        - "target_is_static"
+      rule: "Path(`/user`)"
+      service: userarea
+#    login:
+#      middlewares:
+#        - "auth"
+#      rule: "Path(`/login`) && Method(`POST`)"
+#      service: authserver
+#    logout:
+#      middlewares:
+#        - "auth"
+#      rule: "Path(`/logout`)"
+#      service: authserver
+    loginui:
+      middlewares:
+        - "target_is_static"
+#      rule: "PathPrefix(`/login`) && Method(`GET`)"
+#      service: loginui
+
+  middlewares:
+    auth:
+      forwardauth:
+        address: "http://authserver:9000/auth?onfail=/signin"
+        authResponseHeaders:
+          - "Cookie"
+          - "X-Session"
+        authRequestHeaders:
+          - "Accept"
+          - "Cookie"
+          - "Authorization"
+    target_is_static:
+      stripprefix:
+        prefixes:
+          - "/login"
+          - "/user"
