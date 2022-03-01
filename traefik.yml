@@ -15,9 +15,8 @@ certificatesResolvers:
   myresolver:
     acme:
       email: ssl@rillo5000.com
-      storage: acme.json
+      storage: /etc/traefik/acme/acme.json
       httpChallenge:
-        # used during the challenge
         entryPoint: web
 
   docker:
