@@ -1,9 +1,9 @@
 http:
-  services:
-    userarea:
-      loadBalancer:
-        servers:
-          - url: "http://userarea/"
+#  services:
+#    userarea:
+#      loadBalancer:
+#        servers:
+#          - url: "http://userarea/"
 #    authserver:
 #      loadBalancer:
 #        servers:
@@ -13,13 +13,13 @@ http:
 #        servers:
 #          - url: "http://loginui"
 
-  routers:
-    userrouter:
-      middlewares:
-        - "auth"
-        - "target_is_static"
-      rule: "Path(`/user`)"
-      service: userarea
+  #routers:
+  #  userrouter:
+  #    middlewares:
+  #      - "auth"
+  #      - "target_is_static"
+  #    rule: "Path(`/user`)"
+  #    service: userarea
 #    login:
 #      middlewares:
 #        - "auth"
@@ -30,9 +30,9 @@ http:
 #        - "auth"
 #      rule: "Path(`/logout`)"
 #      service: authserver
-    loginui:
-      middlewares:
-        - "target_is_static"
+#    loginui:
+#      middlewares:
+#        - "target_is_static"
 #      rule: "PathPrefix(`/login`) && Method(`GET`)"
 #      service: loginui
 
