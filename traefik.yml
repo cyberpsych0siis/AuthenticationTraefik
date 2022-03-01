@@ -12,6 +12,9 @@ providers:
   file:
     filename: /etc/traefik/dynamic.yml
     watch: true
+
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
     
 certificatesResolvers:
   myresolver:
@@ -20,9 +23,6 @@ certificatesResolvers:
       storage: /etc/traefik/acme/acme.json
       httpChallenge:
         entryPoint: web
-
-  docker:
-    endpoint: "unix:///var/run/docker.sock"
 
 log:
   level: DEBUG
