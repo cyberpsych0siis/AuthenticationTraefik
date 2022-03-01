@@ -23,3 +23,6 @@ certificatesResolvers:
 
   docker:
     endpoint: "unix:///var/run/docker.sock"
+
+log:
+  level: DEBUG
