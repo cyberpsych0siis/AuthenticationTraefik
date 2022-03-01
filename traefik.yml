@@ -10,6 +10,15 @@ providers:
   file:
     filename: /etc/traefik/dynamic.yml
     watch: true
+    
+certificatesResolvers:
+  myresolver:
+    acme:
+      email: ssl@rillo5000.com
+      storage: acme.json
+      httpChallenge:
+        # used during the challenge
+        entryPoint: web
 
   docker:
     endpoint: "unix:///var/run/docker.sock"
