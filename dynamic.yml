@@ -16,3 +16,8 @@ http:
         prefixes:
           - "/login"
           - "/user"
+    auth_then_strip:
+      chain:
+        middlewares:
+          - auth-users
+          - target_is_static
