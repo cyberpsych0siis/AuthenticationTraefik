@@ -1,6 +1,8 @@
 entrypoints:
   web:
     address: ":80"
+    forwardedHeaders:
+      insecure: true
 #    http:
 #      redirections:
 #        entryPoint:
