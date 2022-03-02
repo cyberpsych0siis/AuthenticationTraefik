@@ -19,5 +19,5 @@ http:
     auth_then_strip:
       chain:
         middlewares:
-          - auth-users
+          - auth
           - target_is_static
