@@ -10,6 +10,7 @@ http:
           - "Accept"
           - "Cookie"
           - "Authorization"
+          - "Location"
     target_is_static:
       stripprefix:
         prefixes:
