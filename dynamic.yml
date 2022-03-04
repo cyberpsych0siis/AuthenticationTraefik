@@ -16,6 +16,7 @@ http:
         prefixes:
           - "/login"
           - "/user"
+          - "/vm"
     auth_then_strip:
       chain:
         middlewares:
